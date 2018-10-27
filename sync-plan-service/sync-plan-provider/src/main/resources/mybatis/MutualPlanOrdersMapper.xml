@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qshz.sync.data.provider.mapper.MutualPlanOrdersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qshz.sync.data.face.entity.MutualPlanOrders">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="order_no" property="orderNo" />
+        <result column="entity" property="entity" />
+        <result column="entity_id" property="entityId" />
+        <result column="entity_attr" property="entityAttr" />
+        <result column="entity_attr_id" property="entityAttrId" />
+        <result column="name" property="name" />
+        <result column="quantity" property="quantity" />
+        <result column="amount" property="amount" />
+        <result column="bill_money" property="billMoney" />
+        <result column="state" property="state" />
+        <result column="channel" property="channel" />
+        <result column="refund_state" property="refundState" />
+        <result column="refund_amount" property="refundAmount" />
+        <result column="refund_no" property="refundNo" />
+        <result column="refund_at" property="refundAt" />
+        <result column="created_at" property="createdAt" />
+        <result column="pay_at" property="payAt" />
+        <result column="closed_at" property="closedAt" />
+        <result column="type" property="type" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, trade_no, order_no, entity, entity_id, entity_attr, entity_attr_id, name, quantity, amount, bill_money, state, channel, refund_state, refund_amount, refund_no, refund_at, created_at, pay_at, closed_at, type, updated_at
+    </sql>
+
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qshz.sync.data.provider.mapper.MutualPlanTradesMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qshz.sync.data.face.entity.MutualPlanTrades">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="out_trade_no" property="outTradeNo" />
+        <result column="payment_type" property="paymentType" />
+        <result column="is_paid" property="isPaid" />
+        <result column="bill_money" property="billMoney" />
+        <result column="created_at" property="createdAt" />
+        <result column="pay_at" property="payAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, trade_no, out_trade_no, payment_type, is_paid, bill_money, created_at, pay_at, updated_at
+    </sql>
+
+</mapper>

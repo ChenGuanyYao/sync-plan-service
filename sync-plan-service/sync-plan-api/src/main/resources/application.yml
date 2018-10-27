@@ -1,0 +1,21 @@
+##Tomcat
+server:
+  tomcat:
+    uri-encoding: utf-8
+    max-threads: 10000
+    min-spare-threads: 30
+  servlet:
+    context-path: /
+  port: 8084
+
+spring:
+  profiles:
+    active: @profileActive@
+#     active: dev
+
+## Dubbo
+dubbo:
+  scan: com.qshz.sync.data.api.controller
+  consumer:
+    timeout: 30000
+

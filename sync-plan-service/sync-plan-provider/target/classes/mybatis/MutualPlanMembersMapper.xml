@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qshz.sync.data.provider.mapper.MutualPlanMembersMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qshz.sync.data.face.entity.MutualPlanMembers">
+        <id column="id" property="id" />
+        <result column="mutual_plan_id" property="mutualPlanId" />
+        <result column="member_no" property="memberNo" />
+        <result column="user_id" property="userId" />
+        <result column="unique_id" property="uniqueId" />
+        <result column="name" property="name" />
+        <result column="idcard" property="idcard" />
+        <result column="idcard_secret" property="idcardSecret" />
+        <result column="birthday" property="birthday" />
+        <result column="state" property="state" />
+        <result column="balance" property="balance" />
+        <result column="join_no" property="joinNo" />
+        <result column="join_channel" property="joinChannel" />
+        <result column="join_channel_set" property="joinChannelSet" />
+        <result column="created_at" property="createdAt" />
+        <result column="actived_at" property="activedAt" />
+        <result column="inactived_at" property="inactivedAt" />
+        <result column="started_at" property="startedAt" />
+        <result column="exited_at" property="exitedAt" />
+        <result column="issue" property="issue" />
+        <result column="is_deleted" property="isDeleted" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="issues" property="issues" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mutual_plan_id, member_no, user_id, unique_id, name, idcard, idcard_secret, birthday, state, balance, join_no, join_channel, join_channel_set, created_at, actived_at, inactived_at, started_at, exited_at, issue, is_deleted, updated_at, issues
+    </sql>
+
+</mapper>

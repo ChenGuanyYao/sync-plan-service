@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qshz.sync.data.provider.mapper.MutualPlanRecordsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="member_id" property="memberId" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="entity" property="entity" />
+        <result column="entity_id" property="entityId" />
+        <!--<result column="entity_attr" property="entityAttr" />-->
+        <!--<result column="entity_attr_id" property="entityAttrId" />-->
+        <result column="source" property="source" />
+        <result column="source_id" property="sourceId" />
+        <result column="type" property="type" />
+        <result column="bill_money" property="billMoney" />
+        <result column="funding_before" property="fundingBefore" />
+        <result column="funding_current" property="fundingCurrent" />
+        <result column="is_income" property="isIncome" />
+        <result column="name" property="name" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, member_id,trade_no, entity, entity_id, source, source_id, type, bill_money, funding_before, funding_current, is_income, name, created_at, updated_at
+    </sql>
+
+    <insert id="insertByBatch" parameterType="java.util.List">
+        insert into mutual_plan_records (id, user_id, member_id,trade_no, entity, entity_id, source, source_id, type,
+        bill_money, funding_before, funding_current, is_income, name, created_at, updated_at)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id,jdbcType=INTEGER},#{item.userId,jdbcType=INTEGER}, #{item.memberId,jdbcType=INTEGER},#{item.tradeNo,jdbcType=VARCHAR},
+            #{item.entity,jdbcType=INTEGER},#{item.entityId,jdbcType=INTEGER},#{item.source,jdbcType=INTEGER},#{item.sourceId,jdbcType=INTEGER},
+            #{item.type,jdbcType=INTEGER},#{item.billMoney,jdbcType=INTEGER},#{item.fundingBefore,jdbcType=INTEGER},#{item.fundingCurrent,jdbcType=INTEGER},
+            #{item.isIncome,jdbcType=INTEGER},#{item.name,jdbcType=VARCHAR},#{item.createdAt,jdbcType=TIMESTAMP},#{item.updatedAt,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+    <insert id="insertSelective" parameterType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        insert into mutual_plan_records
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="memberId != null">
+                member_id,
+            </if>
+            <if test="tradeNo != null">
+                trade_no,
+            </if>
+            <if test="entity != null">
+                entity,
+            </if>
+            <if test="entityId != null">
+                entity_id,
+            </if>
+            <if test="source != null">
+                source,
+            </if>
+            <if test="sourceId != null">
+                source_id,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="billMoney != null">
+                bill_money,
+            </if>
+            <if test="fundingBefore != null">
+                funding_before,
+            </if>
+            <if test="fundingCurrent != null">
+                funding_current,
+            </if>
+            <if test="isIncome != null">
+                is_income,
+            </if>
+            <if test="name != null">
+                name,
+            </if>
+            <if test="createdAt != null">
+                created_at,
+            </if>
+            <if test="updatedAt != null">
+                updated_at,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="memberId != null">
+                #{memberId,jdbcType=BIGINT},
+            </if>
+            <if test="tradeNo != null">
+                #{tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="entity != null">
+                #{entity,jdbcType=INTEGER},
+            </if>
+            <if test="entityId != null">
+                #{entityId,jdbcType=BIGINT},
+            </if>
+            <if test="source != null">
+                #{source,jdbcType=INTEGER},
+            </if>
+            <if test="sourceId != null">
+                #{sourceId,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="billMoney != null">
+                #{billMoney,jdbcType=INTEGER},
+            </if>
+            <if test="fundingBefore != null">
+                #{fundingBefore,jdbcType=INTEGER},
+            </if>
+            <if test="fundingCurrent != null">
+                #{fundingCurrent,jdbcType=INTEGER},
+            </if>
+            <if test="isIncome != null">
+                #{isIncome,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateSelective"  parameterType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        UPDATE mutual_plan_records
+        <trim prefix="set" suffixOverrides=",">
+            <if test="id != null">
+                id=#{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                user_id=#{userId,jdbcType=BIGINT},
+            </if>
+            <if test="memberId != null">
+                member_id = #{memberId,jdbcType=BIGINT},
+            </if>
+            <if test="tradeNo != null">
+                trade_no=#{tradeNo,jdbcType=VARCHAR},
+            </if>
+            <if test="entity != null">
+                entity = #{entity,jdbcType=INTEGER},
+            </if>
+            <if test="entityId != null">
+                entity_id = #{entityId,jdbcType=BIGINT},
+            </if>
+            <if test="source != null">
+                source = #{source,jdbcType=INTEGER},
+            </if>
+            <if test="sourceId != null">
+                source_id = #{sourceId,jdbcType=BIGINT},
+            </if>
+            <if test="type != null">
+                type = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="billMoney != null">
+                bill_money = #{billMoney,jdbcType=INTEGER},
+            </if>
+            <if test="fundingBefore != null">
+                funding_before=#{fundingBefore,jdbcType=INTEGER},
+            </if>
+            <if test="fundingCurrent != null">
+                funding_current = #{fundingCurrent,jdbcType=INTEGER},
+            </if>
+            <if test="isIncome != null">
+                is_income = #{isIncome,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="createdAt != null">
+                created_at = #{createdAt,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updatedAt != null">
+                updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+        WHERE id=#{id,jdbcType=BIGINT}
+    </update>
+    
+    <select id="recordsList" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select id,user_id,source,type,name,bill_money,funding_before,funding_current,created_at from mutual_plan_records where user_id=#{userId} and entity=#{entity} and entity_attr_id=#{entityAttrId} order by created_at and id desc;
+    </select>
+
+    <select id="moneyMax" resultType="integer">
+        select max(bill_money) from mutual_plan_records where user_id=#{userId} and type=1;
+    </select>
+
+    <select id="memberList" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select * from mutual_plan_records where user_id=#{userId} and source_id=#{sourceId}
+    </select>
+
+    <select id="getByUseridAndId" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select * from mutual_plan_records where user_id=#{userId} and id=#{id}
+    </select>
+
+    <select id="getByUidAndEaidAndSid" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select * from mutual_plan_records where user_id=#{userId} and entity_attr_id=#{entityAttrId} and source_id=#{sourceId}
+    </select>
+
+    <select id="huzhuCount" resultType="int">
+        select count(id) from mutual_plan_records where user_id=#{userId} and source_id=#{sourceId} and source='mutual_plan_event' and is_income=0
+    </select>
+
+    <select id="getByUidAndMid" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select * from mutual_plan_records where user_id=#{userId} and entity_attr_id=#{entityAttrId}
+    </select>
+    
+    <select id="memberAction" resultType="com.qshz.sync.data.face.entity.MutualPlanRecords">
+        select source_id from mutual_plan_records where source='order' and user_id=#{userId}
+    </select>
+
+    <select id="memberId" resultType="int">
+        select bill_money from mutual_plan_records where user_id=#{userId} and source='mutual_plan_event' and source_id=#{sourceId} and is_income=0 and entity_attr_id=#{entityAttrId}
+    </select>
+
+
+
+
+
+
+</mapper>
